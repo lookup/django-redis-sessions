@@ -1,9 +1,10 @@
-from redis_sessions.session import SessionStore
 import time
 from nose.tools import eq_
+from django.utils.importlib import import_module
+from django.conf import settings
 
 
-redis_session = SessionStore()
+redis_session = import_module(settings.SESSION_ENGINE).SessionStore()
 
 
 def test_modify_and_keys():
@@ -32,8 +33,8 @@ def test_flush():
 def test_items():
     redis_session['item1'], redis_session['item2'] = 1, 2
     redis_session.save()
-    # Python 3.*
-    eq_(list(redis_session.items()), [('item2', 2), ('item1', 1)])
+    # Python 3.* fix
+    eq_(sorted(list(redis_session.items())), [('item1', 1), ('item2', 2)])
 
 
 def test_expiry():
