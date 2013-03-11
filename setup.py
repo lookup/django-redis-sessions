@@ -1,26 +1,21 @@
-from setuptools import setup
 import os
-import sys
+from setuptools import setup
+
 from redis_sessions import __version__
 
 
-# no with statement for python 2.5
-def long_description():
-    f = open('README.rst')
-    rst = f.read()
-    f.close()
-    return rst
+def read(filename):
+    return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 
 packages = ['redis_sessions']
-
 
 setup(
     name='django-redis-sessions',
     version=__version__,
     description="Redis Session Backend For Django",
     long_description=read("README.rst"),
-    keywords='django, sessions,',
+    keywords='django, sessions, redis',
     author='Martin Rusev',
     author_email='martinrusev@live.com',
     url='http://github.com/martinrusev/django-redis-sessions',

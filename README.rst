@@ -1,23 +1,20 @@
-django-redis-sessions-fork
-==========================
+django-redis-sessions
+=======================
+Redis database backend for your sessions
 
-:info: Redis Session Backend For Django
-
-.. image:: https://api.travis-ci.org/hellysmile/django-redis-sessions-fork.png
-    :target: https://travis-ci.org/hellysmile/django-redis-sessions-fork
-
-
-installation
+------------
+Installation
 ------------
 
-run ``pip install django-redis-sessions-fork`` or alternatively
-download the tarball and run ``python setup.py install``
+1. Run ``pip install django-redis-sessions`` or alternatively  download the tarball and run ``python setup.py install``,
 
-set ``redis_sessions.session`` as your session engine, like so::
+For Django < 1.4 run ``pip install django-redis-sessions==0.3``
+
+2. Set ``redis_sessions.session`` as your session engine, like so::
 
     SESSION_ENGINE = 'redis_sessions.session'
 
-optional settings::
+3. Optional settings::
 
     SESSION_REDIS_HOST = 'localhost'
     SESSION_REDIS_PORT = 6379
@@ -25,16 +22,15 @@ optional settings::
     SESSION_REDIS_PASSWORD = 'password'
     SESSION_REDIS_PREFIX = 'session'
 
-    # if you prefer domain socket connection
-    # you can just add this line instead of SESSION_REDIS_HOST and SESSION_REDIS_PORT
+    # If you prefer domain socket connection, you can just add this line instead of SESSION_REDIS_HOST and SESSION_REDIS_PORT.
 
     SESSION_REDIS_UNIX_DOMAIN_SOCKET_PATH = '/var/run/redis/redis.sock'
 
-that's it
+4. That's it
 
-see: `django-redis-sessions-fork <http://pypi.python.org/pypi/django-redis-sessions-fork>`_ on pypi
+See: `django-redis-sessions <http://pypi.python.org/pypi/django-redis-sessions>`_ on pypi
 
-tests::
+5. Tests::
 
     pip install tox
     tox
